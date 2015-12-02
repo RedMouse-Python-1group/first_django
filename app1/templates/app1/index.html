@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-hello {{ v }}
-{{ dr.field1 }} {{ dr.field2 }}
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+    First page
+{% endblock %}
+
+{% block content %}
+    {% for p in all %}
+        <h2><a href="{% url "inner_page" p.id %}">{{ p.field1 }}</a></h2><p>{{ p.field2 | truncatechars:5 }}</p>
+        {% empty %}
+        <h1> Empty </h1>
+    {% endfor %}
+{% endblock %}

@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-from first_django.app1 import App
+from .models import App
 
 
 def index(request):
-    var = 1+6
-    dr = App.objects.get(field1='bbbb')
-    return render(request, 'app1/index.html', {'v': var, 'dr': dr})
+    o = App.objects.all()
+    return render(request, 'app1/index.html', {'all': o})
+
+
+def page(request, id):
+    p = get_object_or_404(App, pk=id)
+    return render(request, 'app1/page.html', {'page': p})
