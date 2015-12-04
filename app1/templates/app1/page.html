@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }}
+    {{ page.field1 }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ page.field1 }}</h1>
+    <div>{{ page.field2 }}</div>
+{% endblock %}
