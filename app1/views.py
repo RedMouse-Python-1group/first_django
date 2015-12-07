@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
+from django.views.generic import ListView
 from app1.forms import NewForm
 from .models import App
 
@@ -24,3 +25,7 @@ def comments(request):
             App.objects.create(**{'field1': request.POST.get('field1'), 'field2': request.POST.get('field2')})
             return HttpResponseRedirect('/')
     return render(request, 'app1/comment.html', locals())
+
+
+class App1List(ListView):
+    queryset = App.objects.filter(enable=True)
