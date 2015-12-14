@@ -133,6 +133,14 @@ STATIC_ROOT = '/var/www/untitled/first_django/static/'
 #     os.path.join(BASE_DIR, "static"),
 #     '/var/www/untitled/first_django/static/',
 # )
+
+
+
+#TEST_RUNNER = 'django_selenium.selenium_runner.SeleniumTestRunner'
+#SELENIUM_PATH='/var/www/tmp/first_django/selenium-server-standalone-2.7.0.jar'
+SELENIUM_DRIVER = 'Firefox'
+SELENIUM_DISPLAY = ":99.0"
+
 try:
     from local_settings import *
 except ImportError:
