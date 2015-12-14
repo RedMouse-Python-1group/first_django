@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block title %}
     {{ block.super }} - Comment
 {% endblock %}
 
 {% block content %}
+
+	{% trans "Comment" %}
+	
     <form action="{% url 'comment_page' %}" method="POST">
     {% csrf_token %}
     {{ form }}

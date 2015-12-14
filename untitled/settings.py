@@ -40,6 +40,9 @@ INSTALLED_APPS = (
     'app1'
 )
 
+
+
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +52,19 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
+    'django.middleware.locale.LocaleMiddleware',
+)
+
+# LANGUAGE_CODE = 'ru'
+
+LANGUAGES = (
+    ('ru', 'Russian'),
+    ('en', 'English'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 ROOT_URLCONF = 'untitled.urls'
@@ -117,3 +133,7 @@ STATIC_ROOT = '/var/www/untitled/first_django/static/'
 #     os.path.join(BASE_DIR, "static"),
 #     '/var/www/untitled/first_django/static/',
 # )
+try:
+    from local_settings import *
+except ImportError:
+    pass
